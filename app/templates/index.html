@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character encoding and viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title of the document -->
+    <title>Weather App</title>
+    <!-- Link to the CSS stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <!-- Header section -->
+    <header>
+        <!-- Title of the application -->
+        <h1>Weather App</h1>
+    </header>
+
+    <!-- Main content section -->
+    <div class="container">
+        <!-- Weather information container -->
+        <div class="weather-info">
+            <!-- Weather data displayed here -->
+            <!-- Temperature -->
+            <p><strong>Temperature:</strong> <span id="temperature"></span>°C</p>
+            <!-- Description -->
+            <p><strong>Description:</strong> <span id="description"></span></p>
+            <!-- Humidity -->
+            <p><strong>Humidity:</strong> <span id="humidity"></span>%</p>
+            <!-- Wind Speed -->
+            <p><strong>Wind Speed:</strong> <span id="windSpeed"></span> km/h</p>
+            <!-- Weather Icon -->
+            <img id="weatherIcon" src="" alt="Weather Icon">
+        </div>
+    </div>
+
+    <!-- JavaScript code to fetch weather data -->
+    <script>
+        // Fetch weather data from the backend
+        fetch('/weather')
+            .then(response => response.json())
+            .then(data => {
+                // Update HTML elements with weather data
+                document.getElementById('temperature').textContent = data['temperature'];
+                document.getElementById('description').textContent = data['description'];
+                document.getElementById('humidity').textContent = data['humidity'];
+                document.getElementById('windSpeed').textContent = data['wind_speed'];
+                // Set source attribute for the weather icon
+                document.getElementById('weatherIcon').src = `/static/icons/${data['icon']}`;
+            })
+            .catch(error => console.error('Error fetching weather data:', error));
+    </script>
+</body>
+</html>
+

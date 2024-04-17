@@ -1,0 +1,39 @@
+/* Global styles for the entire document */
+body {
+    /* Set font family and background color */
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+/* Styles for header section */
+header {
+    /* Center align text and set background color */
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+}
+
+/* Styles for container and weather info */
+.container {
+    /* Center align container and set max width */
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.weather-info {
+    /* Add padding and border radius to weather info */
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+/* Styles for weather icon */
+.weather-info img {
+    /* Set width and height for weather icon */
+    width: 50px;
+    height: 50px;
+}
+
